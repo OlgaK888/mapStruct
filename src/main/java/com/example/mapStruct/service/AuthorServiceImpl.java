@@ -15,6 +15,11 @@ public class AuthorServiceImpl implements AuthorService {
     private final AuthorDAO authorDAO;
 
     @Override
+    public AuthorDTO save(AuthorDTO authorDTO) {
+        return authorDTO;
+    }
+
+    @Override
     public Author findById(Long id) throws NotFoundDataException{
         final Author author = authorDAO.findById(id)
                 .orElseThrow(() -> new NotFoundDataException("Author with id = " + id + " is not found"));

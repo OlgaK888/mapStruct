@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "f691e82d-dbfa-4215-af4e-51e6e581c1a1",
+		"name": "MapStructCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get DTO",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8003/dto/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"dto",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post DTO",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8003/entity",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"entity"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

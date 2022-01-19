@@ -5,9 +5,7 @@ import com.example.mapStruct.mapper.AuthorMapper;
 import com.example.mapStruct.model.Author;
 import com.example.mapStruct.service.api.AuthorService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,16 +14,16 @@ public class AuthorController {
     private final AuthorMapper mapper;
     private final AuthorService authorService;
 
+    @PostMapping(value = "/entity")
+    public Author getAuthorFromAuthorDTO (@RequestBody AuthorDTO authorDTO){
+
+        return mapper.authorDTOToAuthor(authorService.save(authorDTO));
+    }
+
     @GetMapping(value = "/dto/{id}")
     public AuthorDTO getByIdAuthor (@PathVariable Long id){
 
         return mapper.authorToAuthorDTO(authorService.findById(id));
     }
 
-    @GetMapping(value = "/entity/{id}")
-    public Author getByIdAuthorDTO (@PathVariable Long id){
-
-        AuthorDTO nextAuthor = mapper.authorToAuthorDTO(authorService.findById(id));
-        return mapper.authorDTOToAuthor(nextAuthor);
-    }
 }
